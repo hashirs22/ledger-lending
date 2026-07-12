@@ -29,7 +29,7 @@ The repo is already built and committed. Follow these in order. Anything in `ANG
 1. Sign up at https://resend.com (free).
 2. **API Keys → Create API Key** → copy it (starts `re_…`). You'll paste it into Vercel next.
 3. **Domains → Add Domain** → enter your domain `<your-domain>`. Resend shows a few DNS records (SPF/DKIM). Add them in GoDaddy (step 5). This lets email send *from* your domain with good deliverability.
-   - *You can skip domain verification at first* — leave `CONTACT_FROM_EMAIL` as the default `onboarding@resend.dev` and enquiries still arrive. Verify the domain later to send from `enquiries@<your-domain>`.
+   - *Fastest start (no DNS):* leave `CONTACT_FROM_EMAIL` as `onboarding@resend.dev`. **But** Resend's test sender only delivers to the exact email you **signed up to Resend with** — so sign up using the same inbox you'll put in `CONTACT_TO_EMAIL`. To send to any address (and from `enquiries@<your-domain>`), verify your domain.
 
 ## 4. Add the environment variables on Vercel
 
