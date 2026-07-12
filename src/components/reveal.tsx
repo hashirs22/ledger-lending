@@ -17,7 +17,8 @@ export function Reveal({ delay = 0, y = 24, children, ...props }: RevealProps) {
   const reduce = useReducedMotion();
 
   if (reduce) {
-    return <div {...(props as HTMLMotionProps<"div">)}>{children}</div>;
+    // Static (no animation) but still a motion.div so the prop types line up.
+    return <motion.div {...props}>{children}</motion.div>;
   }
 
   return (
