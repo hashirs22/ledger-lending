@@ -277,6 +277,10 @@ export function ContactForm() {
         Free and no-obligation. Your details are used only to respond to your
         enquiry.
       </p>
+      <p className="mt-2 text-[0.72rem] leading-relaxed text-foreground/45">
+        The information you provide is collected, stored and protected in
+        accordance with the New Zealand Privacy Act 2020.
+      </p>
     </form>
   );
 }
