@@ -88,6 +88,9 @@ export async function POST(request: Request) {
       <div style="font-size:14px;line-height:1.6;white-space:pre-wrap;border-left:3px solid #eee;padding-left:12px">${escapeHtml(message)}</div>
     </div>`;
 
+  // Append ?debug=1 to the request to surface the underlying Resend error.
+  const debug = new URL(request.url).searchParams.get("debug") === "1";
+
   try {
     const resend = new Resend(RESEND_API_KEY);
     const { error } = await resend.emails.send({
@@ -99,11 +102,21 @@ export async function POST(request: Request) {
     });
     if (error) {
       console.error("[contact] Resend error", error);
-      return NextResponse.json({ ok: false, error: "Send failed." }, { status: 502 });
+      return NextResponse.json(
+        { ok: false, error: "Send failed.", ...(debug ? { detail: error, from: FROM_EMAIL, to: TO_EMAIL } : {}) },
+        { status: 502 },
+      );
     }
   } catch (err) {
     console.error("[contact] send threw", err);
-    return NextResponse.json({ ok: false, error: "Send failed." }, { status: 502 });
+    return NextResponse.json(
+      {
+        ok: false,
+        error: "Send failed.",
+        ...(debug ? { detail: err instanceof Error ? err.message : String(err) } : {}),
+      },
+      { status: 502 },
+    );
   }
 
   return NextResponse.json({ ok: true });
