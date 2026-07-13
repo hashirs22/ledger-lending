@@ -16,8 +16,13 @@ const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 // Configured on Vercel (Project → Settings → Environment Variables).
 const RESEND_API_KEY = process.env.RESEND_API_KEY;
 const TO_EMAIL = process.env.CONTACT_TO_EMAIL; // where enquiries land (your Outlook inbox)
+// Send from the verified domain. Honour CONTACT_FROM_EMAIL only if it's a real
+// domain address — never the Resend test sender, which can't deliver to others.
+const RAW_FROM = process.env.CONTACT_FROM_EMAIL;
 const FROM_EMAIL =
-  process.env.CONTACT_FROM_EMAIL || "Ledger & Lending Co. <onboarding@resend.dev>";
+  RAW_FROM && !RAW_FROM.includes("resend.dev")
+    ? RAW_FROM
+    : "Ledger & Lending Co. <noreply@ledger-lending.com>";
 
 function escapeHtml(s: string) {
   return s
