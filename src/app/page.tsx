@@ -79,25 +79,6 @@ const services = [
   },
 ];
 
-const whyUs = [
-  {
-    title: "Know where you stand",
-    body: "Clear accounts, clean systems, and practical reporting so you can see what is really happening in the business.",
-  },
-  {
-    title: "Stay ahead of tax and IRD issues",
-    body: "Support with tax planning, provisional tax, IRD correspondence, tax debt, and payment arrangements before pressure builds.",
-  },
-  {
-    title: "Prepare for funding properly",
-    body: "Forecasts, business plans, and loan packaging that help lenders understand the numbers, the story, and the purpose of the funding.",
-  },
-  {
-    title: "Make the next move with confidence",
-    body: "Support for growth, restructuring, business purchases, valuations, and sale preparation when the business is ready to move.",
-  },
-];
-
 export default function Home() {
   return (
     <>
@@ -170,7 +151,7 @@ export default function Home() {
         <div className="mx-auto flex w-full max-w-6xl flex-col gap-6">
           {services.map((s, i) => (
             <Reveal key={s.title} delay={i * 0.06}>
-              <SpotlightCard className="rounded-[2rem] border border-black/[0.08] bg-white/85 p-8 shadow-[0_28px_80px_rgba(15,12,10,0.1)] backdrop-blur-xl transition-transform duration-300 hover:-translate-y-1 sm:p-10">
+              <SpotlightCard className="rounded-[2rem] border border-black/[0.08] bg-white/72 p-8 shadow-[0_28px_80px_rgba(15,12,10,0.1)] backdrop-blur-xl transition-transform duration-300 hover:-translate-y-1 sm:p-10">
               <h2 className="font-display text-[clamp(2rem,4vw,3rem)] font-semibold">
                 {s.title}
               </h2>
@@ -200,44 +181,6 @@ export default function Home() {
           Trusted by business owners across New Zealand
         </p>
         <Marquee items={industryTicker} />
-      </section>
-
-      {/* WHY US */}
-      <section className="px-6 py-24">
-        <div className="mx-auto w-full max-w-6xl">
-          <Reveal>
-            <p className="text-[0.78rem] font-bold uppercase tracking-[0.22em] text-foreground/70">
-              Why work with us
-            </p>
-            <AnimatedHeading
-              as="h2"
-              text={"Built for the moments when business owners need clarity."}
-              className="mt-4 max-w-3xl font-display text-[clamp(2.4rem,4.6vw,3.6rem)] font-semibold leading-[0.98]"
-            />
-            <p className="mt-5 max-w-2xl text-[1.04rem] leading-relaxed text-foreground/80">
-              A business does not only need advice at year-end. It needs the
-              right support when cash gets tight, tax becomes complex, funding is
-              required, systems fall behind, or the next move needs to be planned
-              properly.
-            </p>
-          </Reveal>
-          <div className="mt-10 grid gap-4 sm:grid-cols-2">
-            {whyUs.map((c, i) => (
-              <Reveal
-                key={c.title}
-                delay={i * 0.06}
-                className="rounded-[1.6rem] border border-white/10 bg-[#141414] p-7 text-white transition-transform duration-300 hover:-translate-y-1"
-              >
-                <strong className="text-[1.1rem] font-semibold">
-                  {c.title}
-                </strong>
-                <p className="mt-2 text-[0.98rem] leading-relaxed text-white/70">
-                  {c.body}
-                </p>
-              </Reveal>
-            ))}
-          </div>
-        </div>
       </section>
 
       {/* CONTACT */}
