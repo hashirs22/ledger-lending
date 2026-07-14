@@ -204,8 +204,9 @@ export default function IndustriesPage() {
             <Link href="/#contact" className={btnPrimary}>
               Book a Consultation
             </Link>
-            <Link href="/about" className={btnGhost}>
-              About the Practice
+            {/* Was "About the Practice" → /about; repointed while About is hidden. */}
+            <Link href="/#services" className={btnGhost}>
+              View Services
             </Link>
           </div>
         </div>

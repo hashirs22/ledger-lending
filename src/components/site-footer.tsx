@@ -4,7 +4,7 @@ import { SocialLinks } from "@/components/social";
 
 const explore = [
   { href: "/#services", label: "Services" },
-  { href: "/about", label: "About" },
+  // About temporarily hidden (JK still at BDO) — restore this line to reinstate.
   { href: "/industries", label: "Industries" },
   { href: "/#contact", label: "Contact" },
 ];

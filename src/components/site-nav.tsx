@@ -8,7 +8,8 @@ import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 
 const links = [
   { href: "/#services", label: "Services" },
-  { href: "/about", label: "About" },
+  // About temporarily hidden (JK still at BDO). To reinstate: restore this line
+  // `{ href: "/about", label: "About" },` and rename src/app/_about → about.
   { href: "/industries", label: "Industries" },
 ];
 
